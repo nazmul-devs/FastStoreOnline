@@ -12,7 +12,7 @@ const showProducts = (products) => {
   console.log(products[2].image);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    const image = product.image;
+    const image = product.image; // images bug fixed here images-image
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
@@ -71,6 +71,7 @@ const updateTaxAndCharge = () => {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
   }
+  updateTotal();
 };
 
 //grandTotal update function
