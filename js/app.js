@@ -15,15 +15,28 @@ const showProducts = (products) => {
     const image = product.image; // images bug fixed here images-image
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
+    div.innerHTML = `<div class="single-product rounded shadow p-2 m-2">
       <div>
     <img class="product-image" src=${image}></img>
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
+        <p>
+              <span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </span>
+              ${product.rating.rate}
+              <span class="fw-bold">(${product.rating.count})</span>
+        </p>
       <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now shadow me-3 px-2 rounded"><i class="fas fa-shopping-cart"></i> add to cart</button>
+      <button id="details-btn" onclick="showDetails(${product.id})"
+      data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-details shadow rounded-pill px-3">Details</button>
+      </div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -82,3 +95,11 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal;
 };
+
+
+// show details 
+const showDetails = id => {
+  fetch(`https://fakestoreapi.com/products/${id}`)
+    .then(res => res.json())
+    .then(data => console.log(data.rating.count));
+}
