@@ -4,6 +4,9 @@ const loadProducts = () => {
 };
 
 
+
+
+
 // show all product in UI 
 const showProducts = (products) => {
   console.log(products[2].image);
@@ -12,6 +15,37 @@ const showProducts = (products) => {
     const image = product.image; // images bug fixed here images-image
     const div = document.createElement("div");
     div.classList.add("col");
+    const rating = product.rating.rate;
+    // rating star add
+  
+      let stars = ``;
+    if (rating >= 4) {
+      stars = `<i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star-half-alt star-full"></i>`;
+    } else if (rating >= 3) {
+      stars = `<i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star-half-alt star-full"></i>
+                    <i class="far fa-star star-empty"></i>`;
+    } else if (rating >= 2) {
+      stars = `<i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star-half-alt star-full"></i>
+                    <i class="far fa-star star-empty"></i>
+                    <i class="far fa-star star-empty"></i>`;
+    } else if (rating >= 1) {
+      stars = `<i class="fas fa-star star-full"></i>
+                    <i class="fas fa-star-half-alt star-full"></i>
+                    <i class="far fa-star star-empty"></i>
+                    <i class="far fa-star star-empty"></i>
+                    <i class="far fa-star star-empty"></i>`;
+  }
+
+
     div.innerHTML = `<div class="card h-100">
               <img src="${image}" class="product-img mx-auto p-2" alt="...">
               <div class="card-body text-center">
@@ -19,16 +53,12 @@ const showProducts = (products) => {
                 <p>Category: ${product.category}</p>
                 <p>
                   <span>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+                  ${stars}
                   </span> ${product.rating.rate} <span class="fw-bold">(${product.rating.count})</span>
                 </p>
                 <h2>Price: $ ${product.price}</h2>
               </div>
-              <div class="card-footer border-0 bg-white mb-3">
+              <div class="card-footer border-0 mb-3">
                 <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn"
                   class="buy-now shadow me-3 px-2 rounded"><i class="fas fa-shopping-cart"></i> add to cart</button>
                 <button id="details-btn" onclick="showDetails(${product.id})" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -39,6 +69,8 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+
 
 // add price to cart
 let count = 0;
@@ -80,7 +112,7 @@ const setInnerText = (id, value) => {
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
   setInnerText("delivery-charge", 20);
-  setInnerText("total-tax", priceConverted * 0.2);
+  // setInnerText("total-tax", priceConverted * 0.2);
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", priceConverted * 0.2);
@@ -123,3 +155,6 @@ const updateDetails = product => {
 
 // loadProducts call 
 loadProducts();
+
+
+// code end here

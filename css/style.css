@@ -12,22 +12,31 @@ body {
 	padding: 5px;
 	outline: none;
 }
+/* product container style */
+.col > div {
+	background: #e8e8e8;
+}
 .product-img {
 	width: 200px;
 	height: 200px;
 	transition: 0.3s;
+	border-radius: 15px;
 }
 .product-img:hover {
 	transform: translateY(-4px);
 }
-.fas {
+.star-full {
+	color: #ffb700;
+	font-size: 14px;
+}
+.star-empty {
 	color: #ffb700;
 	font-size: 14px;
 }
 .buy-now {
 	color: #fff;
 	background: #da1919d2;
-	font-size: 20px;
+	font-size: 18px;
 	border: none;
 	padding: 5px;
 	transition: 0.2s;
@@ -40,14 +49,17 @@ body {
 }
 .btn-details {
 	color: #302f2f;
-	font-size: 20px;
+	font-size: 18px;
 	border: none;
 	padding: 5px;
 	font-weight: 500;
+	background: #cccccc;
 }
 .btn-details:hover {
-	color: #000000;
+	color: #ffffff;
+	background: #747474;
 }
+/* product cart style */
 .cart {
 	width: 350px;
 	min-height: 370px;
@@ -56,14 +68,14 @@ body {
 	margin-right: 30px;
 	position: fixed;
 }
-
+/* footer copyright style */
 footer {
 	background: #090926;
 	color: white;
 	font-size: 15px;
 	padding: 5px;
 }
-
+/* media screen for cart showing */
 @media only screen and (max-width: 700px) {
 	.cart {
 		position: inherit;
