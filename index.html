@@ -21,7 +21,7 @@
         <a class="navbar-brand"><img src="img/logo.png" class="img-fluid" width="120" alt=""></a>
         <form class="d-flex">
           <input id="input-field" placeholder="search product" class="search-field shadow px-4" type="text" />
-          <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false" autocomplete="off"
+          <button type="button" class="btn btn-primary search-button ms-3" data-toggle="button" aria-pressed="false" autocomplete="off"
             id="search-btn" onclick="loadProducts()"> Search </button>
         </form>
       </div>
@@ -29,7 +29,7 @@
   </header>
 
   
-  <!-- Modal -->
+  <!--Product Details Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -52,16 +52,17 @@
 
   <!-- main section  -->
   <main class="main">
-    <div class="row mt-5 d-flex">
-      <div class="col-md-9 col-lg-9 col-sm-7">
+    <div class="row mt-5 d-flex flex-column-reverse flex-md-row">
+      <div class="col-md-9 col-lg-9">
+
         <!-- Product container -->
         <div id="all-products" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 ms-2">
-          
         </div>
       </div>
-      <!-- product cart -->
-      <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
-        <div class="cart shadow" id="my-cart">
+
+      <!-- product cart details -->
+      <div class="col-md-3 cart-main">
+        <div class="cart shadow mx-auto" id="my-cart">
           <table class="table">
             <thead>
               <h1>My-Cart</h1>
@@ -87,7 +88,7 @@
               </tr>
               <tr>
                 <th>Delivery-Charge:</th>
-                <td>$ <span id="delivery-charge">20</span></td>
+                <td>$ <span id="delivery-charge">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
@@ -111,7 +112,10 @@
       </div>
     </div>
   </main>
-  <footer></footer>
+  <!-- footer section -->
+  <footer>
+    <p class="text-center mt-4">© Copyright 2021 by online shop</p>
+  </footer>
 
       <!-- font awesome kit=================================== -->
       <script src="https://kit.fontawesome.com/c8d3fa5332.js" crossorigin="anonymous"></script>
