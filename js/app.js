@@ -9,7 +9,6 @@ const loadProducts = () => {
 
 // show all product in UI 
 const showProducts = (products) => {
-  console.log(products[2].image);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image; // images bug fixed here images-image
